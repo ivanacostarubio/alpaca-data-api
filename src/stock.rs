@@ -60,7 +60,7 @@ pub struct Bar {
     v: u64, // volume
 }
 
-type BarResponse = HashMap<String, Vec<Bar>>;
+pub type BarResponse = HashMap<String, Vec<Bar>>;
 
 #[allow(dead_code)]
 enum Duration {
@@ -79,7 +79,7 @@ enum Duration {
 */
 
 impl Stock {
-    pub async fn bars(self) -> Result<(), Box<dyn std::error::Error>> {
+    pub async fn bars(self) -> Result<BarResponse, Box<dyn std::error::Error>> {
         let url = format!("{:}", "https://data.alpaca.markets/v1/bars/1D");
 
         let client = reqwest::Client::new();
@@ -97,7 +97,7 @@ impl Stock {
             println!("{:?}", item);
         }
 
-        Ok(())
+        Ok(res)
     }
 
     pub async fn last_trade(self) -> Result<StockLastTradeResponse, Box<dyn std::error::Error>> {

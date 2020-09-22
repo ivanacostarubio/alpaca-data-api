@@ -6,9 +6,6 @@ edition = "2018"
 description = "Interact with the Alpaca.market data API"
 license = "MIT"
 
-[lib]
-crate-type = ["cdylib"]
-
 [[examples]]
 name = "stock"
 

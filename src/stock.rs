@@ -52,12 +52,12 @@ pub struct LastQuote {
 
 #[derive(Deserialize, Debug)]
 pub struct Bar {
-    t: u64,
-    o: f64,
-    h: f64,
-    l: f64,
-    c: f64,
-    v: u64,
+    t: u64, // timestamp
+    o: f64, // open
+    h: f64, // high
+    l: f64, // low
+    c: f64, // close
+    v: u64, // volume
 }
 
 type BarResponse = HashMap<String, Vec<Bar>>;
